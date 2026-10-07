@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>FORJA Athletic Club · Gimnasio en Madrid</title>
+<meta name="description" content="FORJA Athletic Club: musculación, cardio, entrenamiento personal y más de 30 clases semanales en Madrid. Planes desde 19,99 €/mes, sin permanencia.">
+<meta name="theme-color" content="#0b0d11">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 2l16 9v18l-16 9L4 29V11z' fill='%23ff5b1f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;600;700&display=swap">
+<script>document.documentElement.classList.add('js')</script>
+<style>
+/* ===== Tokens ===== */
+:root{--bg:#f6f4f1;--bg2:#ece8e3;--card:#fff;--tx:#16181d;--mut:#555a66;--line:#dcd7d0;--act:#c2410c;--ac:#ff5b1f;--hf:'Barlow Condensed','Arial Narrow',Impact,sans-serif;--bf:'Barlow',system-ui,'Segoe UI',Roboto,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1115;--bg2:#14171d;--card:#1b1f27;--tx:#f2f3f5;--mut:#a3a9b5;--line:#2a2f3a;--act:#ff7a45}}
+:root[data-theme="dark"]{--bg:#0f1115;--bg2:#14171d;--card:#1b1f27;--tx:#f2f3f5;--mut:#a3a9b5;--line:#2a2f3a;--act:#ff7a45}
+/* ===== Base ===== */
+html{background:#0b0d11;scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 68px);-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 1rem/1.65 var(--bf);overflow-x:clip}
+h1,h2,h3,p,ul,blockquote,address,table{margin:0}
+h1,h2,h3{font-family:var(--hf);line-height:1.05}
+h2{font-size:clamp(2.2rem,5.5vw,3.6rem);text-transform:uppercase;font-weight:800}
+h3{font-size:1.5rem;font-weight:700}
+a{color:inherit;text-decoration:none}
+ul{padding:0;list-style:none}
+address{font-style:normal}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+section{padding:clamp(64px,9vw,112px) 0}
+.alt{background:var(--bg2)}
+.eyebrow{color:var(--act);font:700 .82rem/1 var(--bf);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}
+.lead{color:var(--mut);max-width:60ch;margin-top:16px}
+.head{margin-bottom:44px}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.split{display:grid;gap:clamp(28px,5vw,64px);grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));align-items:center}
+/* ===== Botones y tarjetas ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border-radius:999px;font:700 1rem var(--bf);border:2px solid var(--ac);background:var(--ac);color:#111;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s,color .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(255,91,31,.4)}
+.btn.ghost{background:transparent;color:var(--tx);border-color:currentColor}
+.btn.ghost:hover{background:var(--tx);color:var(--bg);box-shadow:none}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card:hover{transform:translateY(-6px);border-color:var(--ac);box-shadow:0 18px 40px rgba(0,0,0,.15)}
+.card h3{margin-bottom:8px}
+.card p{color:var(--mut)}
+.card .note{margin-top:14px;font-size:.85rem;font-weight:700;color:var(--act)}
+/* ===== Cabecera ===== */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(11,13,17,.9);backdrop-filter:blur(12px);color:#fff;border-bottom:1px solid rgba(255,255,255,.08)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font:800 1.5rem/1 var(--hf);letter-spacing:.08em}
+.logo svg{width:34px;height:34px}
+.logo small{display:block;font:600 .55rem var(--bf);letter-spacing:.32em;color:#aab0bb;margin-top:3px}
+nav ul{display:flex;gap:4px}
+nav a{display:block;padding:10px 12px;border-radius:8px;font-weight:600;font-size:.92rem;color:#d5d9e0;transition:color .2s,background .2s}
+nav a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.burger{display:none;width:48px;height:48px;background:none;border:0;color:#fff;cursor:pointer}
+.burger span,.burger span::before,.burger span::after{display:block;width:24px;height:2px;background:currentColor;margin:auto;position:relative;transition:.3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-7px}
+.burger span::after{top:7px}
+.open .burger span{background:transparent}
+.open .burger span::before{top:0;transform:rotate(45deg)}
+.open .burger span::after{top:0;transform:rotate(-45deg)}
+/* ===== Hero ===== */
+.hero{--tx:#fff;--bg:#0b0d11;--act:#ff7a45;position:relative;display:flex;align-items:center;min-height:calc(100svh - 68px);padding:72px 0;color:#fff;overflow:hidden;background:var(--img,none),radial-gradient(800px 480px at 78% 25%,rgba(255,91,31,.38),transparent 62%),radial-gradient(600px 400px at 0 100%,rgba(255,91,31,.18),transparent 60%),#0b0d11;background-size:cover;background-position:center}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(255,255,255,.04) 0 2px,transparent 2px 28px),linear-gradient(90deg,rgba(11,13,17,.8),transparent)}
+.hg{position:relative;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:32px}
+.hg>div{animation:up .9s both}
+.hero h1{font-size:clamp(3.6rem,12vw,8.5rem);font-weight:800;letter-spacing:.02em}
+.hero h1 span{display:block;font-size:.4em;letter-spacing:.2em;color:var(--ac);text-transform:uppercase}
+.slogan{font:700 clamp(1.6rem,3.5vw,2.4rem)/1.1 var(--hf);margin-top:18px;text-transform:uppercase}
+.quote{color:#c3c8d2;font-style:italic;margin-top:12px;max-width:44ch}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.art{width:100%;max-width:520px;justify-self:center;filter:drop-shadow(0 0 24px rgba(255,91,31,.55));animation:float 6s ease-in-out infinite}
+/* ===== Nosotros ===== */
+.ck li{position:relative;padding:13px 0 13px 32px;border-bottom:1px solid var(--line)}
+.ck li::before,.plan li::before{content:"✓";position:absolute;left:0;color:var(--act);font-weight:700}
+.stats{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));margin-top:56px}
+.stat{text-align:center;padding:26px 12px}
+.stat b{display:block;font:800 clamp(2.4rem,6vw,3.6rem)/1 var(--hf);color:var(--act)}
+.stat span{color:var(--mut);font-weight:600}
+/* ===== Servicios ===== */
+.ic{width:56px;height:56px;border-radius:14px;background:var(--bg2);display:grid;place-items:center;font-size:1.7rem;margin-bottom:16px;transition:.3s}
+.card:hover .ic{background:var(--ac);transform:rotate(-6deg) scale(1.08)}
+/* ===== Precios ===== */
+.plan{display:flex;flex-direction:column;position:relative}
+.plan h3{font-size:1.8rem;text-transform:uppercase}
+.card .amt{font:800 3rem/1 var(--hf);color:var(--tx);margin:12px 0 18px}
+.amt small{font:500 1rem var(--bf);color:var(--mut)}
+.plan ul{margin-bottom:26px}
+.plan li{position:relative;padding:8px 0 8px 28px;color:var(--mut)}
+.plan .btn{margin-top:auto}
+.hot{--tx:#fff;--mut:#b9bfca;--act:#ff7a45;background:#0b0d11;color:#fff;border-color:var(--ac);transform:scale(1.04);box-shadow:0 22px 50px rgba(255,91,31,.28)}
+.hot:hover{transform:scale(1.04) translateY(-6px)}
+.tag{position:absolute;top:-14px;left:26px;background:var(--ac);color:#111;font-weight:700;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:999px}
+/* ===== Horarios ===== */
+.hours table{width:100%;border-collapse:collapse}
+.hours th,.hours td{padding:18px 4px}
+.hours th{text-align:left;font-weight:600}
+.hours td{text-align:right;font:700 1.4rem var(--hf);color:var(--act)}
+.hours tr+tr{border-top:1px solid var(--line)}
+/* ===== Placeholders de imagen (sustituibles con --img) ===== */
+.ph{position:relative;display:grid;place-items:center;color:#fff;background:var(--img,none),linear-gradient(135deg,hsl(var(--h,18) 70% 32%),#14161b);background-size:cover;background-position:center;overflow:hidden}
+.cls{padding:0;overflow:hidden}
+.cls .ph{height:160px;font-size:3rem;transition:transform .5s}
+.cls:hover .ph{transform:scale(1.08)}
+.cls .bd{position:relative;background:var(--card);padding:22px 24px 26px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chips span{background:var(--bg2);border-radius:999px;padding:4px 12px;font-size:.8rem;font-weight:600}
+/* ===== Galería ===== */
+.gal{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,230px),1fr));grid-auto-rows:190px}
+.gal .ph{padding:0;border:0;border-radius:16px;font-size:2.6rem;cursor:zoom-in;transition:transform .4s,box-shadow .4s}
+.gal .ph:nth-child(3n+1){--h:18}
+.gal .ph:nth-child(3n+2){--h:212}
+.gal .ph:nth-child(3n){--h:36}
+.gal .ph:nth-child(1),.gal .ph:nth-child(6){grid-row:span 2}
+.gal .ph:hover{transform:scale(1.03);box-shadow:0 16px 36px rgba(0,0,0,.35);z-index:1}
+.cap{position:absolute;inset:auto 0 0;padding:14px 16px;font:600 .95rem var(--bf);text-align:left;background:linear-gradient(transparent,rgba(0,0,0,.8));transform:translateY(101%);transition:transform .35s}
+.ph:hover .cap,.ph:focus-visible .cap,#lb .cap{transform:none}
+@media(hover:none){.cap{transform:none}}
+dialog{padding:0;border:0;border-radius:18px;width:min(900px,92vw);overflow:hidden;background:#000}
+dialog::backdrop{background:rgba(0,0,0,.8)}
+#lbv{width:100%;aspect-ratio:16/10;font-size:5rem}
+.x{position:absolute;top:10px;right:10px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-size:1.1rem;cursor:pointer}
+/* ===== Entrenadores y opiniones ===== */
+.av{width:92px;height:92px;border-radius:50%;font:800 2rem var(--hf);margin-bottom:18px;border:3px solid var(--ac);transition:transform .3s}
+.card:hover .av{transform:scale(1.08)}
+.card .role{color:var(--act);font-weight:700;font-size:.9rem;margin-bottom:10px}
+.card .stars{color:#f5a623;letter-spacing:.15em;margin-bottom:10px}
+blockquote{font-size:1.05rem;margin-bottom:16px}
+cite{display:block;font-style:normal;font-weight:700}
+cite span{display:block;font-weight:400;color:var(--mut);font-size:.88rem}
+/* ===== Ubicación y contacto ===== */
+.info li{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line)}
+.info b{min-width:88px}
+.map{min-height:340px;border-radius:18px;border:1px solid var(--line);display:grid;place-content:center;text-align:center;background:linear-gradient(var(--line) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/40px 40px,var(--card)}
+.map b{font-size:2.6rem;animation:pulse 2s infinite}
+.map p{color:var(--mut);font-size:.9rem;padding:0 16px}
+form.card:hover{transform:none;box-shadow:none}
+.fld{margin-bottom:14px}
+label{display:block;font-weight:600;margin-bottom:6px;font-size:.92rem}
+input,textarea{width:100%;font:inherit;color:var(--tx);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;transition:border-color .2s,box-shadow .2s}
+input:focus,textarea:focus{outline:0;border-color:var(--ac);box-shadow:0 0 0 4px rgba(255,91,31,.2)}
+[aria-invalid="true"]{border-color:#e5484d}
+.err{display:block;min-height:1.2em;color:#d03a40;font-size:.82rem;margin-top:4px}
+#ok{color:#1f8f55;font-weight:600;margin-top:14px;min-height:1.5em}
+/* ===== Footer ===== */
+footer{background:#0b0d11;color:#c3c8d2;padding-top:72px}
+.fg{display:grid;gap:36px;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+footer h3{color:#fff;font-size:1.2rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+.fb{font:800 1.8rem var(--hf);color:#fff;letter-spacing:.06em}
+.fb span{color:var(--ac)}
+footer li{padding:4px 0}
+footer a:hover{color:var(--ac)}
+.soc{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:14px}
+.credit{margin-top:56px;padding:22px 0 26px;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:.85rem;letter-spacing:.06em;color:#8b93a1}
+/* ===== Animación ===== */
+@keyframes up{from{opacity:0;transform:translateY(30px)}}
+@keyframes float{50%{transform:translateY(-14px) rotate(-3deg)}}
+@keyframes pulse{50%{transform:scale(1.2)}}
+.js .rv{opacity:0}
+.js .rv.in{opacity:1;animation:up .7s backwards;animation-delay:calc(var(--i,0)*70ms)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js .rv{opacity:1}}
+/* ===== Responsive ===== */
+@media(max-width:960px){
+.burger{display:block}
+nav ul{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:#0b0d11;padding:8px 20px 20px;border-bottom:1px solid rgba(255,255,255,.1)}
+.open nav ul{display:flex}
+nav a{padding:14px 8px;font-size:1.05rem}
+}
+@media(max-width:900px){.hot,.hot:hover{transform:none}}
+@media(max-width:860px){.hg{grid-template-columns:1fr}.art{display:none}}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap bar">
+<a class="logo" href="#inicio" aria-label="FORJA Athletic Club, ir al inicio">
+<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 2l16 9v18l-16 9L4 29V11z" fill="#ff5b1f"/><path d="M14 12h14v4h-9v4h7v4h-7v6h-5z" fill="#0b0d11"/></svg>
+<span>FORJA<small>ATHLETIC CLUB</small></span>
+</a>
+<nav aria-label="Principal"><ul id="menu">
+<li><a href="#inicio">Inicio</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#precios">Precios</a></li><li><a href="#horarios">Horarios</a></li><li><a href="#clases">Clases</a></li><li><a href="#galeria">Galería</a></li><li><a href="#entrenadores">Entrenadores</a></li><li><a href="#contacto">Contacto</a></li>
+</ul></nav>
+<button class="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
+</div>
+</header>
+
+<main>
+<!-- Para usar una foto real en el hero: style="--img:url(foto.jpg)" -->
+<section class="hero" id="inicio">
+<div class="wrap hg">
+<div>
+<p class="eyebrow">Gimnasio · Madrid · Desde 2011</p>
+<h1>FORJA <span>Athletic Club</span></h1>
+<p class="slogan">Forja tu mejor versión.</p>
+<p class="quote">“Cada repetición es una promesa que te haces a ti mismo.”</p>
+<div class="cta"><a class="btn" href="#precios">Ver planes</a><a class="btn ghost" href="#nosotros">Conócenos</a></div>
+</div>
+<svg class="art" viewBox="0 0 200 100" role="img" aria-label="Ilustración de una mancuerna"><g fill="none" stroke="#ff5b1f" stroke-width="4" stroke-linejoin="round"><rect x="6" y="30" width="14" height="40" rx="3"/><rect x="24" y="18" width="16" height="64" rx="3"/><rect x="40" y="46" width="120" height="8" rx="2"/><rect x="160" y="18" width="16" height="64" rx="3"/><rect x="180" y="30" width="14" height="40" rx="3"/></g></svg>
+</div>
+</section>
+
+<section id="nosotros" class="alt"><div class="wrap">
+<div class="split">
+<div class="rv"><p class="eyebrow">Nosotros</p><h2>Una forja de hábitos, no solo un gimnasio</h2>
+<p class="lead">FORJA nació en 2011 en una antigua nave metalúrgica de Madrid, de ahí su nombre. Hoy son 2.400 m² de sala de pesas, cardio, box funcional y estudios de clases.</p>
+<p class="lead">Es un gimnasio para todos: de quien entra por primera vez a quien prepara una competición. Nuestra filosofía: constancia antes que perfección, técnica antes que ego y comunidad antes que postureo.</p></div>
+<ul class="ck rv">
+<li><b>Entrenadores titulados</b> que te corrigen y acompañan en cada fase.</li>
+<li><b>Grupos reducidos</b>: máximo 15 personas por clase.</li>
+<li><b>Material profesional</b>, renovado cada año.</li>
+<li><b>Sin matrícula ni permanencia.</b> Te quedas porque quieres.</li>
+</ul>
+</div>
+<div class="stats">
+<div class="card stat rv"><b data-n="500">+500</b><span>miembros</span></div>
+<div class="card stat rv"><b data-n="20">+20</b><span>entrenadores</span></div>
+<div class="card stat rv"><b data-n="15">+15</b><span>años de experiencia</span></div>
+<div class="card stat rv"><b data-n="30">+30</b><span>clases semanales</span></div>
+</div>
+</div></section>
+
+<section id="servicios"><div class="wrap">
+<div class="head rv"><p class="eyebrow">Servicios</p><h2>Todo lo que necesitas para entrenar</h2><p class="lead">Siete zonas pensadas para que cada objetivo tenga su espacio.</p></div>
+<div class="grid">
+<article class="card rv"><div class="ic" aria-hidden="true">🏋️</div><h3>Musculación</h3><p>Peso libre y más de 120 máquinas guiadas para ganar fuerza y masa muscular.</p><p class="note">Sala de 600 m²</p></article>
+<article class="card rv"><div class="ic" aria-hidden="true">🏃</div><h3>Cardio</h3><p>Cintas, elípticas, remos y bicis con pantalla y control de pulsaciones.</p><p class="note">40 equipos</p></article>
+<article class="card rv"><div class="ic" aria-hidden="true">🎯</div><h3>Entrenamiento personal</h3><p>Sesiones 1 a 1 con plan a medida, seguimiento y objetivos medibles.</p><p class="note">Primera sesión gratis</p></article>
+<article class="card rv"><div class="ic" aria-hidden="true">🔥</div><h3>Cross training</h3><p>Circuitos intensos con kettlebells, anillas, cuerdas y trineos.</p><p class="note">Box de 200 m²</p></article>
+<article class="card rv"><div class="ic" aria-hidden="true">🧘</div><h3>Clases dirigidas</h3><p>Más de 30 sesiones semanales con monitores titulados y grupos reducidos.</p><p class="note">Reserva desde la app</p></article>
+<article class="card rv"><div class="ic" aria-hidden="true">🤸</div><h3>Zona funcional</h3><p>Césped indoor, suspensión y balones medicinales para moverte en todos los planos.</p><p class="note">Zona indoor</p></article>
+<article class="card rv"><div class="ic" aria-hidden="true">⚡</div><h3>Preparación física</h3><p>Programas para deportistas y oposiciones con test inicial y revisiones.</p><p class="note">Con evaluación inicial</p></article>
+</div>
+</div></section>
+
+<section id="precios" class="alt"><div class="wrap">
+<div class="head rv"><p class="eyebrow">Precios</p><h2>Elige tu plan</h2><p class="lead">Sin matrícula ni permanencia. IVA incluido.</p></div>
+<div class="grid">
+<article class="card plan rv"><h3>Basic</h3><p class="amt">19,99 € <small>/mes</small></p>
+<ul><li>Sala de musculación y cardio</li><li>Vestuarios y taquillas</li><li>App con rutinas</li><li>Horario completo</li></ul>
+<a class="btn ghost" href="#contacto" data-plan="Basic">Elegir Basic</a></article>
+<article class="card plan hot rv"><span class="tag">Recomendado</span><h3>Pro</h3><p class="amt">29,99 € <small>/mes</small></p>
+<ul><li>Todo lo del plan Basic</li><li>Clases dirigidas ilimitadas</li><li>Valoración corporal trimestral</li><li>1 invitado al mes</li></ul>
+<a class="btn" href="#contacto" data-plan="Pro">Elegir Pro</a></article>
+<article class="card plan rv"><h3>Elite</h3><p class="amt">44,99 € <small>/mes</small></p>
+<ul><li>Todo lo del plan Pro</li><li>2 sesiones/mes con entrenador personal</li><li>Sauna y zona de recuperación</li><li>Plan nutricional y reservas prioritarias</li></ul>
+<a class="btn ghost" href="#contacto" data-plan="Elite">Elegir Elite</a></article>
+</div>
+</div></section>
+
+<section id="horarios"><div class="wrap split">
+<div class="rv"><p class="eyebrow">Horarios</p><h2>Abrimos cuando tú puedes</h2><p class="lead">Las clases dirigidas tienen su propio horario en la sección Clases. Las franjas más tranquilas son de 10:00 a 16:00.</p></div>
+<div class="card hours rv"><table>
+<caption hidden>Horario de apertura</caption>
+<tbody>
+<tr><th scope="row">Lunes – Viernes</th><td>06:00 – 23:00</td></tr>
+<tr><th scope="row">Sábado</th><td>08:00 – 20:00</td></tr>
+<tr><th scope="row">Domingo</th><td>09:00 – 14:00</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="clases" class="alt"><div class="wrap">
+<div class="head rv"><p class="eyebrow">Clases</p><h2>Muévete en grupo</h2><p class="lead">Reserva tu plaza desde la app. Grupos de máximo 15 personas.</p></div>
+<div class="grid">
+<article class="card cls rv"><div class="ph" style="--h:18" role="img" aria-label="Clase de spinning">🚴</div><div class="bd"><h3>Spinning</h3><p>Ruta virtual con música y cambios de ritmo para quemar calorías.</p><div class="chips"><span>⏱ 45 min</span><span>Todos los niveles</span><span>L-X-V · 07:30 y 19:00</span></div></div></article>
+<article class="card cls rv"><div class="ph" style="--h:150" role="img" aria-label="Clase de yoga">🧘</div><div class="bd"><h3>Yoga</h3><p>Movilidad, respiración y equilibrio para soltar la tensión del día.</p><div class="chips"><span>⏱ 60 min</span><span>Iniciación</span><span>M-J · 09:00 y 20:30</span></div></div></article>
+<article class="card cls rv"><div class="ph" style="--h:8" role="img" aria-label="Clase de HIIT">⚡</div><div class="bd"><h3>HIIT</h3><p>Intervalos de alta intensidad: máximo trabajo en mínimo tiempo.</p><div class="chips"><span>⏱ 30 min</span><span>Avanzado</span><span>L-X · 18:30</span></div></div></article>
+<article class="card cls rv"><div class="ph" style="--h:212" role="img" aria-label="Clase de boxeo fitness">🥊</div><div class="bd"><h3>Boxeo fitness</h3><p>Técnica de golpeo y cardio sobre saco, sin contacto.</p><div class="chips"><span>⏱ 50 min</span><span>Intermedio</span><span>M-J · 19:30</span></div></div></article>
+<article class="card cls rv"><div class="ph" style="--h:36" role="img" aria-label="Clase de entrenamiento funcional">🤸</div><div class="bd"><h3>Funcional</h3><p>Patrones de movimiento con peso corporal y kettlebells.</p><div class="chips"><span>⏱ 45 min</span><span>Intermedio</span><span>L-M-J · 08:30</span></div></div></article>
+<article class="card cls rv"><div class="ph" style="--h:280" role="img" aria-label="Clase de pilates">🌿</div><div class="bd"><h3>Pilates</h3><p>Control del core y de la postura con ejercicios precisos.</p><div class="chips"><span>⏱ 55 min</span><span>Todos los niveles</span><span>M-V · 10:00 y 18:00</span></div></div></article>
+</div>
+</div></section>
+
+<section id="galeria"><div class="wrap">
+<div class="head rv"><p class="eyebrow">Galería</p><h2>Así es FORJA</h2><p class="lead">Pulsa en cualquier imagen para ampliarla.</p></div>
+<!-- Marcadores listos para fotos con licencia libre: añade style="--img:url(foto.jpg)" a cada botón -->
+<div class="gal rv">
+<button class="ph" type="button" aria-label="Ampliar: Exterior"><span aria-hidden="true">🏢</span><span class="cap">Exterior</span></button>
+<button class="ph" type="button" aria-label="Ampliar: Interior"><span aria-hidden="true">🏟️</span><span class="cap">Interior</span></button>
+<button class="ph" type="button" aria-label="Ampliar: Máquinas"><span aria-hidden="true">⚙️</span><span class="cap">Máquinas</span></button>
+<button class="ph" type="button" aria-label="Ampliar: Pesas"><span aria-hidden="true">🏋️</span><span class="cap">Pesas</span></button>
+<button class="ph" type="button" aria-label="Ampliar: Entrenamiento"><span aria-hidden="true">💪</span><span class="cap">Entrenamiento</span></button>
+<button class="ph" type="button" aria-label="Ampliar: Cardio"><span aria-hidden="true">🏃</span><span class="cap">Cardio</span></button>
+<button class="ph" type="button" aria-label="Ampliar: Entrenadores"><span aria-hidden="true">🧑‍🏫</span><span class="cap">Entrenadores</span></button>
+<button class="ph" type="button" aria-label="Ampliar: Clases"><span aria-hidden="true">🧘</span><span class="cap">Clases</span></button>
+<button class="ph" type="button" aria-label="Ampliar: Personas entrenando"><span aria-hidden="true">👥</span><span class="cap">Personas entrenando</span></button>
+</div>
+</div></section>
+
+<section id="entrenadores" class="alt"><div class="wrap">
+<div class="head rv"><p class="eyebrow">Entrenadores</p><h2>Un equipo que te acompaña</h2></div>
+<div class="grid">
+<article class="card rv"><div class="ph av" style="--h:18" role="img" aria-label="Foto de Carlos Martínez">CM</div><h3>Carlos Martínez</h3><p class="role">Entrenador personal · Fuerza</p><p>Ex-halterófilo. Te enseña técnica sólida para levantar más y mejor, sin lesiones.</p></article>
+<article class="card rv"><div class="ph av" style="--h:212" role="img" aria-label="Foto de Laura García">LG</div><h3>Laura García</h3><p class="role">Entrenadora fitness · Funcional</p><p>Diseña circuitos que mejoran tu movilidad, tu resistencia y tu energía diaria.</p></article>
+<article class="card rv"><div class="ph av" style="--h:150" role="img" aria-label="Foto de Marta Ruiz">MR</div><h3>Marta Ruiz</h3><p class="role">Yoga y Pilates</p><p>Profesora certificada. Trabaja postura, respiración y recuperación.</p></article>
+<article class="card rv"><div class="ph av" style="--h:8" role="img" aria-label="Foto de Diego Salas">DS</div><h3>Diego Salas</h3><p class="role">Boxeo y HIIT</p><p>Campeón regional amateur. Clases de pura intensidad, siempre con técnica.</p></article>
+</div>
+</div></section>
+
+<section id="opiniones"><div class="wrap">
+<div class="head rv"><p class="eyebrow">Opiniones</p><h2>Lo que dicen nuestros socios</h2></div>
+<div class="grid">
+<figure class="card rv" style="margin:0"><p class="stars" role="img" aria-label="5 de 5 estrellas">★★★★★</p><blockquote>“El ambiente es increíble y los entrenadores siempre están dispuestos a ayudar.”</blockquote><cite>Ana Pérez<span>Socia Pro · 2 años</span></cite></figure>
+<figure class="card rv" style="margin:0"><p class="stars" role="img" aria-label="5 de 5 estrellas">★★★★★</p><blockquote>“Llevaba años sin entrenar y en tres meses he recuperado fuerza y confianza.”</blockquote><cite>Javier Llorente<span>Socio Basic · 1 año</span></cite></figure>
+<figure class="card rv" style="margin:0"><p class="stars" role="img" aria-label="5 de 5 estrellas">★★★★★</p><blockquote>“Material de primera, siempre limpio y sin aglomeraciones. El plan Elite merece cada euro.”</blockquote><cite>Sofía Mena<span>Socia Elite · 3 años</span></cite></figure>
+</div>
+</div></section>
+
+<section id="ubicacion" class="alt"><div class="wrap split">
+<div class="card rv"><p class="eyebrow">Ubicación</p><h3>FORJA Athletic Club</h3>
+<ul class="info">
+<li><b>Dirección</b><span>C/ Ferrería 28</span></li>
+<li><b>Ciudad</b><span>28045 Madrid</span></li>
+<li><b>Teléfono</b><a href="tel:+34910555018">+34 910 555 018</a></li>
+<li><b>Correo</b><a href="mailto:hola@forjaclub.example">hola@forjaclub.example</a></li>
+<li><b>Horario</b><span>L–V 06:00–23:00 · S 08:00–20:00 · D 09:00–14:00</span></li>
+</ul></div>
+<!-- Sustituye el contenido de este bloque por el iframe de Google Maps -->
+<div class="map rv" role="img" aria-label="Mapa ilustrativo de la ubicación"><b aria-hidden="true">📍</b><p>Espacio reservado para Google Maps</p></div>
+</div></section>
+
+<section id="contacto"><div class="wrap split">
+<div class="rv"><p class="eyebrow">Contacto</p><h2>Empieza hoy mismo</h2><p class="lead">Cuéntanos tu objetivo y te proponemos el plan ideal. Tu primera clase es gratis y respondemos en menos de 24 horas.</p></div>
+<form id="f" class="card rv" novalidate aria-label="Formulario de contacto">
+<div class="fld"><label for="n">Nombre</label><input id="n" autocomplete="name" required minlength="2"><small class="err"></small></div>
+<div class="fld"><label for="e">Email</label><input id="e" type="email" autocomplete="email" required><small class="err"></small></div>
+<div class="fld"><label for="t">Teléfono</label><input id="t" type="tel" autocomplete="tel" required pattern="[0-9 +]{9,15}"><small class="err"></small></div>
+<div class="fld"><label for="m">Mensaje</label><textarea id="m" rows="4" required minlength="10"></textarea><small class="err"></small></div>
+<button class="btn" type="submit">Enviar mensaje</button>
+<p id="ok" role="status"></p>
+</form>
+</div></section>
+
+<dialog id="lb" aria-label="Imagen ampliada"><button class="x" type="button" aria-label="Cerrar">✕</button><div class="ph" id="lbv"></div></dialog>
+</main>
+
+<footer><div class="wrap">
+<div class="fg">
+<div><p class="fb">FORJA <span>Athletic Club</span></p><p>Forja tu mejor versión.</p>
+<ul class="soc"><li><a href="#">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">YouTube</a></li></ul></div>
+<div><h3>Contacto</h3><address><p>C/ Ferrería 28, 28045 Madrid</p><p><a href="tel:+34910555018">+34 910 555 018</a></p><p><a href="mailto:hola@forjaclub.example">hola@forjaclub.example</a></p></address></div>
+<div><h3>Horarios</h3><ul><li>Lunes – Viernes: 06:00 – 23:00</li><li>Sábado: 08:00 – 20:00</li><li>Domingo: 09:00 – 14:00</li></ul></div>
+<div><h3>Enlaces rápidos</h3><ul><li><a href="#servicios">Servicios</a></li><li><a href="#precios">Precios</a></li><li><a href="#clases">Clases</a></li><li><a href="#galeria">Galería</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+</div>
+<p class="credit">portafolio Redouane y petro</p>
+</div></footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+// Menú móvil
+const hd=$('header'),bt=$('.burger');
+bt.onclick=()=>bt.setAttribute('aria-expanded',hd.classList.toggle('open'));
+$$('nav a').forEach(a=>a.addEventListener('click',()=>{hd.classList.remove('open');bt.setAttribute('aria-expanded',false)}));
+$$('a[href="#"]').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
+
+// Aparición al hacer scroll + contadores
+const count=el=>{const n=+el.dataset.n,t0=performance.now(),run=t=>{const p=Math.min((t-t0)/1300,1);el.textContent='+'+Math.round(n*(1-(1-p)**3));if(p<1)requestAnimationFrame(run)};requestAnimationFrame(run)};
+const io=new IntersectionObserver((list,o)=>list.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');o.unobserve(e.target);if(!calm)e.target.querySelectorAll('[data-n]').forEach(count)}),{threshold:.15});
+$$('.rv').forEach(el=>{el.style.setProperty('--i',[...el.parentNode.children].indexOf(el)%6);io.observe(el)});
+
+// Galería ampliable
+const lb=$('#lb');
+$$('.gal .ph').forEach(b=>b.addEventListener('click',()=>{const cs=getComputedStyle(b);['--h','--img'].forEach(k=>lb.style.setProperty(k,cs.getPropertyValue(k)));$('#lbv').innerHTML=b.innerHTML;lb.showModal()}));
+$('.x').onclick=()=>lb.close();
+lb.addEventListener('click',e=>{if(e.target===lb)lb.close()});
+
+// Planes → formulario
+$$('[data-plan]').forEach(a=>a.addEventListener('click',()=>{$('#m').value='Hola, me interesa el plan '+a.dataset.plan+'. ¿Podéis darme más información?'}));
+
+// Formulario con validación básica (sin envío real)
+const f=$('#f'),fields=[...f.querySelectorAll('input,textarea')];
+const msg={valueMissing:'Este campo es obligatorio.',typeMismatch:'Introduce un email válido.',patternMismatch:'Introduce un teléfono válido (solo números).',tooShort:'Escribe un poco más.'};
+const check=i=>{const k=Object.keys(msg).find(x=>i.validity[x]);i.nextElementSibling.textContent=k?msg[k]:'';i.setAttribute('aria-invalid',!!k);return !k};
+fields.forEach(i=>i.addEventListener('blur',()=>check(i)));
+f.addEventListener('submit',e=>{e.preventDefault();const ok=fields.map(check).every(Boolean);
+ if(!ok){fields.find(i=>!i.validity.valid).focus();$('#ok').textContent='';return}
+ $('#ok').textContent='¡Gracias! Hemos recibido tu mensaje y te responderemos en menos de 24 horas.';f.reset()});
+</script>
+</body>
+</html>
